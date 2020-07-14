@@ -1,0 +1,27 @@
+<Context path="/framework">
+
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
+              validationQuery="select 1" maxActive="100" maxIdle="30"
+              maxWait="10000" name="jdbc/framework"  type="javax.sql.DataSource"
+              url="jdbc:mysql://qm-dev-sql01.quixmo.net/framework4"
+              username="framework4"
+              password="79cgmYzqiQpi"
+    />
+
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
+              validationQuery="select 1" maxActive="100" maxIdle="30"
+              maxWait="10000" name="jdbc/puma"  type="javax.sql.DataSource"
+              url="jdbc:mysql://qm-dev-sql01.quixmo.net/quixpro"
+              username="quixpro"
+              password="rRzfDq7HiK6j"
+    />
+
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
+              validationQuery="select 1" maxActive="100" maxIdle="30"
+              maxWait="10000" name="jdbc/commons"  type="javax.sql.DataSource"
+              url="jdbc:mysql://qm-dev-sql01.quixmo.net/quixpro"
+              username="quixpro"
+              password="rRzfDq7HiK6j"
+    />
+
+</Context>

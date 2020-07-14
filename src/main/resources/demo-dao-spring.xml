@@ -1,0 +1,29 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd" default-lazy-init="false">-->
+
+	<!--<bean id="daoFactory" class="it.quix.marazzi.marazziApi.core.dao.DAOFactory" />-->
+
+	<!--&lt;!&ndash; ********************************************* &ndash;&gt;-->
+	<!--&lt;!&ndash; DAOs &ndash;&gt;-->
+	<!--<bean id="marazziApiDownloadTrackerDAO" class="it.quix.marazzi.marazziApi.core.dao.MarazziApiDownloadTrackerDAO"  >-->
+		<!--<constructor-arg ref="marazziApiDataSource" ></constructor-arg>-->
+	<!--</bean>-->
+	<!--<bean id="marazziApiDocumentDAO" class="it.quix.marazzi.marazziApi.core.dao.MarazziApiDocumentDAO"  >-->
+		<!--<constructor-arg ref="marazziApiDataSource" ></constructor-arg>-->
+	<!--</bean>-->
+	<!--<bean id="marazziApiSearchTrackerDAO" class="it.quix.marazzi.marazziApi.core.dao.MarazziApiSearchTrackerDAO"  >-->
+		<!--<constructor-arg ref="marazziApiDataSource" ></constructor-arg>-->
+	<!--</bean>-->
+	<!--<bean id="casseMobiliOrdineDAO" class="it.quix.marazzi.marazziApi.core.dao.CasseMobiliOrdineDAO"  >-->
+		<!--<constructor-arg ref="marazziApiDataSource" ></constructor-arg>-->
+	<!--</bean>-->
+	<!--<bean id="casseMobiliNotificaDAO" class="it.quix.marazzi.marazziApi.core.dao.CasseMobiliNotificaDAO"  >-->
+		<!--<constructor-arg ref="marazziApiDataSource" ></constructor-arg>-->
+	<!--</bean>-->
+	<!--<bean id="casseMobiliContainerDAO" class="it.quix.marazzi.marazziApi.core.dao.CasseMobiliContainerDAO"  >-->
+		<!--<constructor-arg ref="marazziApiDataSource" ></constructor-arg>-->
+	<!--</bean>-->
+    <!--<bean id="merchandisingMappingItemDAO" class="it.quix.marazzi.marazziApi.core.dao.MerchandisingMappingItemDAO"  >-->
+        <!--<constructor-arg ref="merchandisingMappingDataSource" ></constructor-arg>-->
+    <!--</bean>-->
+<!--</beans>-->

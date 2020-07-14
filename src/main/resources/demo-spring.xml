@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ****************** -->
+	<!-- file included -->
+	<!-- ****************** -->
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+	<context:component-scan base-package="com.example.demo"/>
+	
+	<import resource="classpath:demo-ds-spring.xml" />
+	<!--<import resource="classpath:demo-dao-spring.xml" />-->
+	<!--<import resource="classpath:marazziApi-validator-spring.xml" />-->
+	<!--<import resource="classpath:demo-config-spring.xml" />-->
+	<!--<import resource="classpath:marazziApi-flywaydb-spring.xml" />-->
+
+	<!-- ****************** -->
+	<!-- Aspects -->
+	<!-- ****************** -->
+	<bean id="userContextAspect" class="it.quix.framework.core.aspect.UserContextAspect">
+		<property name="order" value="1" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" order="2" proxy-target-class="true" />
+
+
+	<!-- ****************** -->
+	<!-- jdbc spring -->
+	<!-- ****************** -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+		<property name="dataSource" ref="frameworkDataSource" />
+  	</bean>
+
+
+	<!-- ****************** -->
+	<!-- beans application -->
+	<!-- ****************** -->
+	<!--<bean id="userContext" class="it.quix.marazzi.marazziApi.core.model.MarazziApiUserContext" scope="prototype">-->
+ 	 	<!--<property name="pumaDataSource" ref="marazziApiPumaDataSource" /> -->
+ 	 	<!--<property name="commonsDataSource" ref="marazziApiCommonsDataSource" /> -->
+	<!--</bean>-->
+	<bean id="userContextFactory" class="it.quix.framework.core.model.UserContextFactory">
+		<property name="userContextClass" value="it.quix.marazzi.marazziApi.core.model.MarazziApiUserContext" />
+	</bean>
+	<!--<bean id="validatorFactory" class="it.quix.marazzi.marazziApi.core.validation.ValidatorFactory" />-->
+	<bean id="constraintFactory" class="it.quix.framework.core.validation.ConstraintFactoryImpl" />
+
+    <!--<bean id="securityHandler" class="it.quix.marazzi.marazziApi.core.handler.SecurityHandlerImpl" />-->
+	
+	<!--  
+	<bean id="it.quix.marazzi.marazziApi.web.action.rest.RestManagerAction"  scope="prototype"  class="it.quix.marazzi.marazziApi.web.action.rest.RestManagerAction" />
+	-->
+	<!--<bean id="importFromLDAPJob" class="it.quix.marazzi.marazziApi.core.job.ImportFromLDAPJob">-->
+		<!--<property name="name" value="ImportFromLDAPJob"/>-->
+		<!--<property name="cronExpression" value="* * * * * ? 2099" />-->
+		<!--<property name="recoveryYN" value="true"/>-->
+		<!--<property name="statefulYN" value="true"/>-->
+		<!--<property name="defaultParameterMap">-->
+			<!--<map>-->
+				<!--<entry key="ErrorMailToList">-->
+					<!--<list>-->
+						<!--<value>giovanni.gilli@quix.it</value>-->
+					<!--</list>-->
+				<!--</entry>-->
+				<!--<entry key="ADUrl" value="ldap://VSSSDOMP103:389" />-->
+				<!--<entry key="ADPrincipal" value="EMEA\\S108718" />-->
+				<!--<entry key="ADCredentials" value="M@r@1mp0rt3r" />-->
+			<!--</map>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!--<bean id="importIntoElasticJob" class="it.quix.marazzi.marazziApi.core.job.ImportIntoElasticJob">-->
+		<!--<property name="name" value="ImportIntoElasticJob"/>-->
+		<!--<property name="cronExpression" value="* * * * * ? 2099" />-->
+		<!--<property name="recoveryYN" value="true"/>-->
+		<!--<property name="statefulYN" value="true"/>-->
+		<!--<property name="defaultParameterMap">-->
+			<!--<map>-->
+				<!--<entry key="ErrorMailToList">-->
+					<!--<list>-->
+						<!--<value>giovanni.gilli@quix.it</value>-->
+					<!--</list>-->
+				<!--</entry>-->
+			<!--</map>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!--<bean id="jobInErrorSendMailJob" class="it.quix.marazzi.marazziApi.core.job.JobInErrorSendMailJob">-->
+		<!--<property name="name" value="JobInErrorSendMailJob"/>-->
+		<!--<property name="cronExpression" value="0 0 9 * * ? 2099" />-->
+		<!--<property name="recoveryYN" value="true"/>-->
+		<!--<property name="statefulYN" value="true"/>-->
+	<!--</bean>-->
+</beans>
